@@ -1,0 +1,29 @@
+{
+  "name": "ruuvitag-database",
+  "version": "1.0.0",
+  "description": "Collects data from nearby RuuviTags to an SQL database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ounai/ruuvitag-database.git"
+  },
+  "author": "Onni Rantanen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ounai/ruuvitag-database/issues"
+  },
+  "homepage": "https://github.com/ounai/ruuvitag-database#readme",
+  "dependencies": {
+    "node-ruuvitag": "^4.7.0",
+    "pg": "^8.11.3",
+    "sequelize": "^6.33.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
