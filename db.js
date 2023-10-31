@@ -126,6 +126,8 @@ const getDatabaseConnection = async options => {
         allowNull: false
       }
     }, { timestamps: true });
+
+    await sequelize.sync();
   }
 
   return { RuuviTagData, RuuviTagHistoricalData };

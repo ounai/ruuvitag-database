@@ -1,6 +1,6 @@
 {
   "name": "ruuvitag-database",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Collects data from nearby RuuviTags to an SQL database",
   "main": "index.js",
   "scripts": {
