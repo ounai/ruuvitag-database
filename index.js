@@ -7,7 +7,19 @@ let logging = false;
 const log = (...args) => logging && console.log(...args);
 
 const init = (options = {}) => {
-  for (const key of ['dialect', 'host', 'database', 'username', 'password']) {
+  if (typeof options.dialect !== 'string') {
+      throw new Error(`"dialect" missing from options!`);
+  }
+
+  const requiredKeys = [];
+
+  if (options.dialect === 'sqlite') {
+    requiredKeys.push('storage');
+  } else {
+    requiredKeys.push('host', 'database', 'username', 'password');
+  }
+
+  for (const key of requiredKeys) {
     if (typeof options[key] !== 'string') {
       throw new Error(`"${key}" missing from options!`);
     }
