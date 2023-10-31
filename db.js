@@ -6,9 +6,9 @@ let RuuviTagHistoricalData = null;
 
 const getDatabaseConnection = async options => {
   if (sequelize === null) {
-    sequelize = new Sequelize(options);
+    let _sequelize = new Sequelize(options);
 
-    RuuviTagData = sequelize.define('RuuviTagData', {
+    RuuviTagData = _sequelize.define('RuuviTagData', {
       tagId: {
         type: DataTypes.STRING(12),
         allowNull: false,
@@ -68,7 +68,7 @@ const getDatabaseConnection = async options => {
       }
     }, { timestamps: true });
 
-    RuuviTagHistoricalData = sequelize.define('RuuviTagHistoricalData', {
+    RuuviTagHistoricalData = _sequelize.define('RuuviTagHistoricalData', {
       tagId: {
         type: DataTypes.STRING(12),
         allowNull: false
@@ -127,7 +127,9 @@ const getDatabaseConnection = async options => {
       }
     }, { timestamps: true });
 
-    await sequelize.sync();
+    await _sequelize.sync();
+
+    sequelize = _sequelize;
   }
 
   return { RuuviTagData, RuuviTagHistoricalData };
